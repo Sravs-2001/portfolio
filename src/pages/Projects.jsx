@@ -7,9 +7,14 @@ export default function Projects() {
 
       <div className="grid md:grid-cols-3 gap-8">
         {projects.map((project, i) => (
-          <div key={i} className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl hover:scale-105 transition">
+          <div
+            key={i}
+            className="bg-[#f2f4f7]/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl hover:scale-105 transition"
+          >
             <h3 className="text-xl font-semibold">{project}</h3>
-            <p className="text-gray-400 mt-2">Modern scalable web application.</p>
+            <p className="text-gray-400 mt-2">
+              Modern scalable web application.
+            </p>
           </div>
         ))}
       </div>

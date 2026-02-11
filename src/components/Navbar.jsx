@@ -1,36 +1,28 @@
-import React from "react";
+import ThemeToggle from "./ThemeToggle";
 
-export default function Navbar() {
+export default function Navbar({ theme, setTheme }) {
   return (
-    <nav className="w-full h-[76px] px-6 bg-black flex items-center justify-between text-white font-sans">
-      {/* Left Section */}
+    <nav
+      className="
+  w-full h-[76px] px-6 flex items-center justify-between
+  transition-colors duration-300
+  bg-[#f2f4f7] dark:bg-black
+  text-black dark:text-white
+  "
+    >
       <div className="flex items-center gap-24">
-        {/* Name (Double Layer Tilt Effect) */}
-        <div className="relative leading-none">
-          <p className="text-base font-medium">Sravani Madaka</p>
-          {/* <p className="text-base font-medium transform skew-x-12 opacity-80">
-            Nolan Carter
-          </p> */}
-        </div>
-
-        {/* Role */}
-        <p className="text-base font-medium opacity-90">Software Developer</p>
+        <p className="text-base font-medium  text-black dark:text-white">
+          Sravani Madaka
+        </p>
+        <p className="text-base font-medium  text-black opacity-90 dark:text-white">
+          Software Developer
+        </p>
       </div>
 
-      {/* Right Section */}
-      <div className="flex items-center gap-8">
-        {/* Location + Time */}
-        <div className="flex items-center gap-2 text-sm opacity-90">
-          <span>Hyderabad</span>
-          {/* <span>•</span> */}
-          <span className="tabular-nums">10:27 AM</span>
-        </div>
-
-        {/* Status Dot */}
-        {/* <div className="w-3.5 h-3.5 relative">
-          <div className="absolute inset-0 bg-white/20 rounded-full"></div>
-          <div className="absolute w-3.5 h-3.5 bg-white rounded-full -translate-y-1/2"></div>
-        </div> */}
+      <div className="flex items-center gap-4 text-sm">
+        <span>Hyderabad</span>
+        <ThemeToggle theme={theme} setTheme={setTheme} />
+        <span className="tabular-nums opacity-90">11:42 AM</span>
       </div>
     </nav>
   );
