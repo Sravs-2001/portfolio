@@ -2,14 +2,14 @@ export default function ThemeToggle({ theme, setTheme }) {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative w-9 h-5 rounded-full 
-      bg-black/20 dark:bg-[#f2f4f7]/20 
-      flex items-center transition"
+      className="relative w-12 h-6 rounded-full 
+      bg-stone-300 dark:bg-stone-700 
+      flex items-center transition-colors p-1"
+      aria-label="Toggle Theme"
     >
       <span
-        className={`absolute w-4 h-4 rounded-full bg-black dark:bg-[#f2f4f7] 
-        transition-transform duration-300
-        ${theme === "dark" ? "translate-x-4" : "translate-x-1"}`}
+        className={`absolute w-4 h-4 rounded-full bg-white shadow-sm transform transition-transform duration-300 ease-spring
+        ${theme === "dark" ? "translate-x-6" : "translate-x-0"}`}
       />
     </button>
   );
