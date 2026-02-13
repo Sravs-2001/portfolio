@@ -1,10 +1,9 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Instagram, Linkedin, Twitter, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import profile from '../assets/1768823700276.jpg';
 import Card from '../components/Card';
 import StackTicker from '../components/StackTicker';
-import profile from '../assets/1768823700276.jpg';
 
 export default function Home() {
   const navigate = useNavigate();

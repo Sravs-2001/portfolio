@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from "react";
-import ThemeToggle from "./ThemeToggle";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar({ theme, setTheme }) {
   const [time, setTime] = useState(new Date());
