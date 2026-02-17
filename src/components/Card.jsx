@@ -18,7 +18,7 @@ export default function Card({ children, className = "", onClick, href, layoutId
         backdrop-blur-2xl 
         border border-white/20 dark:border-white/10 
         shadow-xl dark:shadow-2xl
-        p-8 
+        ${className.includes('!p-0') ? '' : 'p-8'} 
         hover:bg-white/60 dark:hover:bg-white/10 
         transition-all duration-300 group ${className}`}
             {...(!href ? { whileHover: { scale: 1.02 }, transition: { type: "spring", stiffness: 300, damping: 20 } } : {})}

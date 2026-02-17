@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import profile from '../assets/1768823700276.jpg';
 import Card from '../components/Card';
 import StackTicker from '../components/StackTicker';
+import ParallaxText from '../components/ParallaxText';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -11,7 +12,26 @@ export default function Home() {
     <div className="w-full flex-1 flex flex-col items-center justify-center font-sans overflow-hidden relative selection:bg-purple-500/30 p-4 md:p-8">
       {/* Background Gradients are now global in App.js */}
 
-      <div className="max-w-8xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 relative z-10 pt-20 pb-10">
+      {/* Background Marquee Text - Subtle & Slow */}
+      <div className="absolute top-[20%] w-full opacity-[0.03] dark:opacity-[0.05] pointer-events-none rotate-[-5deg] scale-150 z-0 select-none">
+        <ParallaxText baseVelocity={-2}>DEVELOPER DESIGNER CREATOR</ParallaxText>
+        <ParallaxText baseVelocity={2}>REACT NEXTJS TAILWIND NODE</ParallaxText>
+      </div>
+
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.15
+            }
+          }
+        }}
+        className="max-w-8xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 relative z-10 pt-20 pb-10"
+      >
 
         {/* Name Header - Full Width */}
         <div className="col-span-1 md:col-span-4 flex flex-col items-center justify-center pb-12">
@@ -34,7 +54,7 @@ export default function Home() {
 
         {/* Row 1 */}
         {/* About Card */}
-        <div className="col-span-1 md:col-span-1 h-[300px]">
+        <motion.div variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="col-span-1 md:col-span-1 h-[300px]">
           <Card href="/about" layoutId="about-card" className="h-full flex flex-col justify-between group cursor-pointer bg-white/40 dark:bg-white/5 border-white/20 dark:border-white/10 hover:bg-white/60 dark:hover:bg-white/20">
             <div className="flex justify-between items-start">
               <span className="text-xs font-semibold text-neutral-500 dark:text-white/40 uppercase tracking-[0.2em]">About</span>
@@ -47,10 +67,10 @@ export default function Home() {
               <p className="text-sm text-neutral-500 dark:text-white/40 mt-2 leading-relaxed">Passionate about building scalable web applications and intuitive interfaces.</p>
             </div>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Portfolio Card */}
-        <div className="col-span-1 md:col-span-3 h-[300px]">
+        <motion.div variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="col-span-1 md:col-span-3 h-[300px]">
           <Card href="/projects" layoutId="projects-card" className="h-full flex flex-col justify-between group cursor-pointer bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/10 border-white/20 dark:border-white/10 hover:border-indigo-200 dark:hover:border-white/20">
             <div className="flex justify-between items-start">
               <span className="text-xs font-semibold text-neutral-500 dark:text-white/40 uppercase tracking-[0.2em]">Portfolio</span>
@@ -71,11 +91,11 @@ export default function Home() {
               </div>
             </div>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Row 2 */}
         {/* Contact Card */}
-        <div className="col-span-1 md:col-span-2 h-[300px]">
+        <motion.div variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="col-span-1 md:col-span-2 h-[300px]">
           <Card onClick={() => navigate('/contact')} layoutId="contact-card" className="h-full flex flex-col justify-between group cursor-pointer bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 border-white/20 dark:border-white/10 hover:border-emerald-200 dark:hover:border-white/20">
             <div className="flex justify-between items-start">
               <span className="text-xs font-semibold text-neutral-500 dark:text-white/40 uppercase tracking-[0.2em]">Contact</span>
@@ -101,10 +121,10 @@ export default function Home() {
               </div>
             </div>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Profile Card */}
-        <div className="col-span-1 md:col-span-1 h-[300px]">
+        <motion.div variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="col-span-1 md:col-span-1 h-[300px]">
           <Card className="h-full p-0 overflow-hidden relative group border-white/20 dark:border-white/10">
             <img src={profile} alt="Sravani Madaka" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
@@ -113,10 +133,10 @@ export default function Home() {
               </div>
             </div>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Stack & Resume Column */}
-        <div className="col-span-1 md:col-span-1 flex flex-col gap-4 md:gap-6 h-[300px]">
+        <motion.div variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="col-span-1 md:col-span-1 flex flex-col gap-4 md:gap-6 h-[300px]">
           {/* Stack */}
           <div className="flex-1 relative overflow-hidden rounded-[32px]">
             <Card className="h-full flex items-center justify-center p-0 bg-white/40 dark:bg-white/5 border-white/20 dark:border-white/10">
@@ -136,9 +156,9 @@ export default function Home() {
               </div>
             </Card>
           </div>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
 
       {/* Footer */}
       <div className="mt-12 text-neutral-400 dark:text-white/20 text-xs font-light tracking-widest uppercase">
