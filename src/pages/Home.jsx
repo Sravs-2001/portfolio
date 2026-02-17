@@ -4,19 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import profile from '../assets/1768823700276.jpg';
 import Card from '../components/Card';
 import StackTicker from '../components/StackTicker';
-import ParallaxText from '../components/ParallaxText';
 
 export default function Home() {
   const navigate = useNavigate();
   return (
     <div className="w-full flex-1 flex flex-col items-center justify-center font-sans overflow-hidden relative selection:bg-purple-500/30 p-4 md:p-8">
-      {/* Background Gradients are now global in App.js */}
 
-      {/* Background Marquee Text - Subtle & Slow */}
-      <div className="absolute top-[20%] w-full opacity-[0.03] dark:opacity-[0.05] pointer-events-none rotate-[-5deg] scale-150 z-0 select-none">
-        <ParallaxText baseVelocity={-2}>DEVELOPER DESIGNER CREATOR</ParallaxText>
-        <ParallaxText baseVelocity={2}>REACT NEXTJS TAILWIND NODE</ParallaxText>
-      </div>
 
       <motion.div
         initial="hidden"
